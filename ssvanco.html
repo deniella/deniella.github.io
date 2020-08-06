@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Vancomycin AUC:MIC based Dosing AH</title>
+  </head>
+  <body>
+    <div class="container-fluid my-2 pb-2">
+      <!-- Header -->
+      <header class="masthead">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+              <h1 class="font-weight-bold text-white ">Vancomycin Calculator</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light  mb-4 navbar-custom" >
+      	<div class="container-fluid">
+      		<a class="navbar-brand" href="#">Deniella's work</a>
+      	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      	 	 <span class="navbar-toggler-icon"></span>
+      	  </button>
+      		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      			<ul class="nav nav-tabs navbar-nav ml-auto">
+      				<li class="nav-item">
+      					<a class="nav-link" href="index.html">Initial Vancomycin Dosing</a>
+      				</li>
+      				<li class="nav-item">
+      					<a class="nav-link active" href="ssvanco.html">Steady State Vancomycin Dosing</a>
+      				</li>
+      			</ul>
+      		</div>
+      	</div>
+       </nav>
+
+      <!-- Form -->
+      <form class="needs-validation m-5" id="steadystatecalculations" data-toggle="validator" novalidate>
+        <h2 class="p-2">Dosing Information</h2>
+        <!-- row 1 -->
+
+        <!-- row 2 -->
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="dose" class="col-form-label col">Dose (mg):</label>
+            </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <input type="number" class="form-control" id="dose" name="dose" type="number" required>
+                  </div>
+                </div>
+                <div class="message"></div>
+              </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="dosinginterval" class="col-form-label col">Dosing interval (hr):</label>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input type="number" class="form-control" id="dosinginterval" name="dosinginterval" required>
+                </div>
+              </div>
+              <div class="message"></div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="infusionduration" class="col-form-label col">Infusion duration (hr):</label>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input type="number" class="form-control" id="infusionduration" name="infusionduration" required>
+                </div>
+              </div>
+              <div class="message"></div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="datetimepicker1" class="col-form-label col">Last Dose Given:</label>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <div class="input-group date" id="datetimepicker1"  data-target-input="nearest">
+                      <input type="text" class="form-control datetimepicker-input col" name="datetimepicker1" data-target="#datetimepicker1"/ required>
+                      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
+                  <div class="message"></div>
+                </div>
+             </div>
+            </div>
+          </div>
+        </div>
+        <!-- row 3 -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row ">
+                  <div class="col-lg-3 offset-lg-3 ">
+                    <div class="d-none d-lg-block">
+                      Time Drawn:
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="d-none d-lg-block">
+                      Result (mg/L):
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 text-left text-lg-right">
+                  <div class="d-none d-lg-block">
+                    <label for="datetimepicker2" class="col-form-label">Peak:</label>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="d-lg-none">
+                    Time Drawn of Peak:
+                  </div>
+                  <div class="form-group">
+                   <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                     <input type="text" class="form-control datetimepicker-input col" name="datetimepicker2" data-target="#datetimepicker2"/ required>
+                     <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                     </div>
+                   </div>
+                   <div class="message"></div>
+                 </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="d-lg-none">
+                    Result of Peak (mg/L):
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="cmaxmeasured" name="cmaxmeasured" required>
+                    <div class="message"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3 text-left text-lg-right">
+                  <div class="d-none d-lg-block">
+                    <label for="datetimepicker3" class="col-form-label">Trough:</label>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="d-lg-none">
+                    Time Drawn of Trough:
+                  </div>
+                  <div class="form-group">
+                   <div class="input-group date" id="datetimepicker3"  data-target-input="nearest">
+                     <input type="text" class="form-control datetimepicker-input col" name="datetimepicker3" data-target="#datetimepicker3"/ required>
+                     <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                     </div>
+                   </div>
+                   <div class="message"></div>
+                  </div>
+                </div>
+                <div class="col-lg-3">
+                  <div class="d-lg-none">
+                    Result of Trough (mg/L):
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="cminmeasured" name="cminmeasured">
+                    <div class="message"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- submit button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary my-1" >Submit</button>
+        </div>
+      </form>
+      <!-- Tables -->
+      <div class="row allTables">
+        <div class="col-lg-6">
+          <div class="table-responsive-lg">
+            <table class="table table-md table-bordered table-striped" id="steadystatepatientinfo"></table>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col">
+              <div class="table-responsive-lg">
+                <table class="table table-md table-bordered table-striped" id="steadystateinfo"></table>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="table-responsive-lg">
+                <table class="table table-md table-bordered table-striped" id="steadystateadjustedinfo"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="app/renderer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Widget JS -->
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/moment-precise-range.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Project JS -->
+    <script type="text/javascript" src="js/vancoAH.js"></script>
+    <script type="text/javascript" src="js/build-table.js"></script>
+    <script type="text/javascript" src="js/steadyStateJquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/validatewithjquery.js"></script>
+  </body>
+</html>

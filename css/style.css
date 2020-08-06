@@ -1,0 +1,124 @@
+.masthead {
+  height: 1vh;
+  min-height: 100px;
+  background-image: url('../img/largebg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 -15px;
+  overflow: hidden;
+}
+body {
+  background-color:#06130d;
+}
+h1 {
+  font-size: 200%;
+}
+.container-fluid {
+  background-color: #ecf9f2;
+  max-width:1200px;
+}
+.navbar {
+  margin: 0px -15px;
+  padding: 0px 0px 0px 0px;
+  background-color: #2d8659;
+}
+.navbar .container-fluid {
+  background-color: #2d8659;
+}
+/* change the background color */
+.navbar-custom {
+    background-color: black;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: black;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: orange;
+}
+.nav-tabs {
+  border-bottom: 1px solid #2d8659;
+}
+.nav-tabs .nav-link.active{
+  background-color:#ecf9f2;
+  border-color: 1px solid #ecf9f2;
+  border-bottom: 1px solid #ecf9f2;
+}
+.navbar-collapse.collapsing,
+.navbar-collapse.show {
+  border-bottom: 1px solid #2d8659;
+  border-right: 1px solid #2d8659;
+}
+.btn {
+  background-color: #39ac73;
+  border: 1px solid #ced4da;
+}
+.btn-success, .btn:hover, .btn.focus, .btn.checked, .btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled):focus {
+  background-color: #2d8659;
+  border: 1px solid #ced4da;
+}
+/* This is the default state */
+.custom-radio .custom-control-label::before {
+    background-color: greenyellow;
+}
+/* This is the checked state */
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-color: green;  /* green */
+    /* this bg image SVG is just a white circle, you can replace it with any valid SVG code */
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E);
+    border-radius: 50%;
+}
+/* active state i.e. displayed while the mouse is being pressed down */
+.custom-radio .custom-control-input:active ~ .custom-control-label::before {
+    color: #fff;
+    background-color: green;
+}
+/* the shadow; displayed while the element is in focus */
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(207, 133, 23, 0.65); /* pink, 25% opacity */
+}
+table.table th{
+  background-color: #80B372;
+}
+.table-dark {
+  background-color: #2C6F04;
+}
+caption {
+  caption-side: top;
+  text-align: center;
+}
+caption h1 {
+  font-size: 150%;
+}
+.date .btn {
+  background-color: white;
+  border: 1px solid white;
+}
+.help-block.error {
+  margin-bottom: 5px;
+}
+.has-error label {
+  color: #ff3547 !important;
+}
+.has-error input.form-control, .has-error .btn, .has-error select {
+  border-color: #ff3547;
+}
+.has-success input.form-control, .has-success .btn, .has-success select {
+  border-color: #28a745;
+}
+.has-error .date .btn, .has-success .date .btn {
+  border: 1px solid white;
+}
+em {
+  font-size: 80%
+}

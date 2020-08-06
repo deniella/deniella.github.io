@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Vancomycin AUC:MIC based Dosing AH</title>
+  </head>
+  <body>
+    <div class="container-fluid my-2 pb-2">
+      <!-- Header -->
+      <header class="masthead">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+              <h1 class="font-weight-bold text-white">Vancomycin Calculator</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light mb-4 navbar-custom" >
+      	<div class="container-fluid">
+      		<a class="navbar-brand" href="#">Deniella's work</a>
+      	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      	 	 <span class="navbar-toggler-icon"></span>
+      	  </button>
+      		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      			<ul class="nav nav-tabs navbar-nav ml-auto">
+      				<li class="nav-item">
+      					<a class="nav-link active" href="index.html">Initial Vancomycin Dosing</a>
+      				</li>
+      				<li class="nav-item">
+      					<a class="nav-link" href="ssvanco.html">Steady State Vancomycin Dosing</a>
+      				</li>
+      			</ul>
+      		</div>
+      	</div>
+       </nav>
+       <!-- Form -->
+      <form class="needs-validation m-5" id="initalcalculations" data-toggle="validator" novalidate>
+        <h2 class="p-2">Patient Information</h2>
+        <!-- first row -->
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="age" class="col-form-label col">Age:</label>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input class="form-control col" id="age" name="age" type="number" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="message col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <label class="col-form-label col" for="genderbuttongroup">Sex:</label>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <div class="btn-group btn-group-toggle btn-group-md btn-block" data-toggle="button" id="genderbuttongroup">
+                    <label class="btn btn-secondary type">
+                       <input type="radio" name="gender" id="option1" value="male" required>Male
+                     </label>
+                     <label class="btn btn-secondary type">
+                       <input type="radio" name="gender" id="option2" value="female" required>Female
+                     </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="message col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="scr" class="col-form-label col">SCr (mg/dL):</label>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input type="number" class="form-control" id="scr" name="SCr" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="message col"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <label for="vd" class="col-form-label col">Vd (L/kg):</label>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input type="number" class="form-control" id="vdcalc" name="vd" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="message col"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- second row -->
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+              <label for="weight" class="col-form-label col">Weight:</label>
+            </div>
+            <div class="row">
+              <div class="form-group col">
+                <div class="row">
+                  <div class="col">
+                    <input type="number" class="form-control col" id="weight" name="weight" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="message col"></div>
+                </div>
+              </div>
+              <div class="form-group col">
+                <div class="row">
+                  <div class="col">
+                    <select class="custom-select" id="weightunits" name="weight-units" required>
+                      <option value="" disabled selected ><span>Units</span> </option>
+                      <option value="kg" >kg</option>
+                      <option value="lb" >lb</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="message col"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <label for="height" class="col-form-label col">Height:</label>
+            </div>
+            <div class="row">
+              <div class="form-group col">
+                <div class="row">
+                  <div class="col">
+                    <input type="number" class="form-control" id="height" name="height"  required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="message col"></div>
+                </div>
+              </div>
+              <div class="form-group col">
+                <div class="row">
+                  <div class="col">
+                    <select class="custom-select" id="heightunits" name="height-units" required>
+                      <option value="" disabled selected>Units</option>
+                      <option value="cm">cm</option>
+                      <option value="in">in</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="message col"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- third row -->
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <label class="col-form-label col">Indication:</label>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <div class="row">
+                    <div class="col">
+                      <div class="custom-control custom-radio custom-align custom-control-inline">
+                          <input class="custom-control-input" type="radio" name="indication" id="Severe Infection" value="severe infection" required>
+                          <label class="custom-control-label" for="Severe Infection">
+                            severe infection
+                          </label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="indication" id="non-limb threatening SSTI" value="non-limb threatening SSTI" required>
+                        <label class="custom-control-label" for="non-limb threatening SSTI">
+                          non-limb threatening SSTI
+                        </label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="indication" id="urinary tract infection" value="urinary tract infection" required>
+                        <label class="custom-control-label" for="urinary tract infection">
+                          urinary tract infection
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="message col"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col">
+                  <div class="row">
+                    <div class="col">
+                      <select class="custom-select has-success" id="specificSevereIndication" name="specific-severe-indication" disabled required>
+                        <option value="" disabled selected>Select Severe Indication</option>
+                        <option value="CNS infection/Meningitis">CNS infection/Meningitis</option>
+                        <option value="Endocarditis">Endocarditis</option>
+                        <option value="Febrile Neutropenia">Febrile Neutropenia</option>
+                        <option value="Limb-threatening SSTI">Limb-threatening SSTI</option>
+                        <option value="Bacteremia">Bacteremia</option>
+                        <option value="Osteomyelitis">Osteomyelitis</option>
+                        <option value="Pneumonia">Pneumonia</option>
+                        <option value="Severe Sepsis">Severe Sepsis</option>
+                        <option value="Sternal wound infection">Sternal wound infection</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="message col"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- submit button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary my-1" >Submit</button>
+        </div>
+      </form>
+      <!-- Tables -->
+      <div class="row">
+        <div class="col-lg-6 ">
+          <div class="table-responsive-lg">
+            <table class="table table-md table-bordered table-striped" id="patientinfo"></table>
+          </div>
+        </div>
+        <div class="col-lg-6 ">
+          <div class="table-responsive-lg">
+            <table class="table table-md table-bordered table-striped" id="dosinginfo"></table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="app/renderer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/vancoAH.js"></script>
+    <script type="text/javascript" src="js/build-table.js"></script>
+    <script type="text/javascript" src="js/initialVancoJquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/validatewithjquery.js"></script>
+
+  </body>
+</html>
