@@ -131,7 +131,7 @@ function determineBodyWeightForCrCl(gender, height, totalbodyweight){
   }
   console.log("ibw " + idealBodyWeight);
 
-  let adjustedBodyWeight = idealBodyWeight - 0.4 * (totalBodyWeight - idealBodyWeight);
+  let adjustedBodyWeight = idealBodyWeight + 0.4 * (totalBodyWeight - idealBodyWeight);
   console.log("adjbw " + adjustedBodyWeight);
 
   let crclweight = -1;
