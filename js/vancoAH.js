@@ -133,23 +133,24 @@ function determineBodyWeightForCrCl(gender, height, totalbodyweight){
 
   let adjustedBodyWeight = idealBodyWeight + 0.4 * (totalBodyWeight - idealBodyWeight);
   console.log("adjbw " + adjustedBodyWeight);
-
+  console.log("130 percent of ibw: " + 1.3 * idealBodyWeight)
   let crclweight = -1;
 
-  if (totalBodyWeight < idealBodyWeight){
+  if(totalBodyWeight >= idealBodyWeight && totalBodyWeight < 1.3 * idealBodyWeight){
+    crclweight = idealBodyWeight;
+    console.log("ibw used");
+    return [crclweight,"Ideal Body Weight"];
+  }
+  else if (totalBodyWeight < idealBodyWeight){
     crclweight = totalBodyWeight;
     console.log("tbw used");
-    return [crclweight,"TBW"];
+    return [crclweight,"Total Body Weight"];
   }
-  if (totalBodyWeight > 1.25 * idealBodyWeight){
+  else if (totalBodyWeight >= 1.3 * idealBodyWeight){
     crclweight = adjustedBodyWeight
     console.log("adjbw used");
-    return [crclweight, "AdjBW"];
+    return [crclweight,"Adjusted Body Weight"];
   }
-
-  crclweight = idealBodyWeight;
-  console.log("ibw used");
-  return [crclweight,"IBW"];
 }
 
 
